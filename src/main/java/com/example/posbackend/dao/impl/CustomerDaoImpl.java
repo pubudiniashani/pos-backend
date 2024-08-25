@@ -2,6 +2,7 @@ package com.example.posbackend.dao.impl;
 
 import com.example.posbackend.dao.CustomerDao;
 import com.example.posbackend.dto.CustomerDTO;
+import com.example.posbackend.entity.Customer;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -42,8 +43,21 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public String saveCustomer(CustomerDTO customerDTO, Connection connection) {
-        return null;
+    public boolean saveCustomer(Customer customer, Connection connection) {
+        try {
+            var pstm = connection.prepareStatement(SAVE_CUSTOMER);
+
+            pstm.setString(1,customer.getCustomerId());
+            pstm.setString(2,customer.getCustomerName());
+            pstm.setString(3,customer.getAddress());
+            pstm.setString(4,customer.getContactNumber());
+
+          return  pstm.executeUpdate() > 0;
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -52,7 +66,21 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public boolean updateCustomer(String customerId, CustomerDTO customer, Connection connection) {
-        return false;
+    public boolean updateCustomer(Customer customer, Connection connection) {
+        try {
+            var pstm = connection.prepareStatement(UPDATE_CUSTOMER);
+
+            pstm.setString(2,customer.getCustomerName());
+            pstm.setString(3,customer.getAddress());
+            pstm.setString(4,customer.getContactNumber());
+            pstm.setString(1,customer.getCustomerId());
+
+            System.out.println("dao " + customer);
+
+            return pstm.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
