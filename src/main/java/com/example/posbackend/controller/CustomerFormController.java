@@ -82,10 +82,10 @@ public class CustomerFormController extends HttpServlet {
         super.doDelete(req, resp);
     }
 
-    @Override
+   /* @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       /* String id = req.getParameter("customerId");
-        System.out.println(id);*/
+       String id = req.getParameter("customerId");
+        System.out.println(id);
         resp.setContentType("application/json");
 
         try (var writer = resp.getWriter()) {
@@ -95,6 +95,7 @@ public class CustomerFormController extends HttpServlet {
 
 
             boolean isUpdated = customerBo.updateCustomer(customerDTO,connection);
+            System.out.println(isUpdated);
             if (isUpdated) {
                 writer.write("Customer Updated Successfully");
                 resp.setStatus(HttpServletResponse.SC_OK);
@@ -107,5 +108,34 @@ public class CustomerFormController extends HttpServlet {
         } catch (JsonbException e) {
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid JSON data");
         }
+    }*/
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("application/json");
+
+        try (var writer = resp.getWriter()) {
+
+            Jsonb jsonb = JsonbBuilder.create();
+            CustomerDTO customerDTO = jsonb.fromJson(req.getReader(), CustomerDTO.class);
+
+            boolean isUpdated = customerBo.updateCustomer(customerDTO, connection);
+
+            if (isUpdated) {
+                writer.write("Customer Updated Successfully");
+                resp.setStatus(HttpServletResponse.SC_OK);
+            } else {
+                writer.write("Failed to Update Customer");
+                resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            }
+
+        } catch (JsonbException e) {
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid JSON data");
+        } catch (Exception e) {
+            resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "An unexpected error occurred");
+        }
     }
+
 }
+
+

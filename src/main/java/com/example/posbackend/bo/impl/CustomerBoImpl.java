@@ -41,7 +41,7 @@ public class CustomerBoImpl implements CustomerBo {
           customerDTO.getContactNumber()
         );
 
-        System.out.println(customer);
+        System.out.println("boimpl"+ customer);
 
         return customerDao.updateCustomer(customer,connection);
     }

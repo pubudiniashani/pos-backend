@@ -70,10 +70,10 @@ public class CustomerDaoImpl implements CustomerDao {
         try {
             var pstm = connection.prepareStatement(UPDATE_CUSTOMER);
 
-            pstm.setString(2,customer.getCustomerName());
-            pstm.setString(3,customer.getAddress());
-            pstm.setString(4,customer.getContactNumber());
-            pstm.setString(1,customer.getCustomerId());
+            pstm.setString(1,customer.getCustomerName());
+            pstm.setString(2,customer.getAddress());
+            pstm.setString(3,customer.getContactNumber());
+            pstm.setString(4,customer.getCustomerId());
 
             System.out.println("dao " + customer);
 
