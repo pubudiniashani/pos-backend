@@ -25,7 +25,7 @@ import java.sql.SQLException;
 public class CustomerFormController extends HttpServlet {
 
     Connection connection;
-    private CustomerBo  customerBo = new CustomerBoImpl() ;
+    private CustomerBo customerBo = new CustomerBoImpl();
 
     @Override
     public void init() throws ServletException {
@@ -49,7 +49,6 @@ public class CustomerFormController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 
-
     }
 
     @Override
@@ -65,7 +64,7 @@ public class CustomerFormController extends HttpServlet {
 
             CustomerDTO customerDTO = jsonb.fromJson(req.getReader(), CustomerDTO.class);
 
-            customerBo.saveCustomer(customerDTO,connection);
+            customerBo.saveCustomer(customerDTO, connection);
             System.out.println(customerDTO);
 
 
@@ -77,10 +76,6 @@ public class CustomerFormController extends HttpServlet {
 
     }
 
-    @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doDelete(req, resp);
-    }
 
    /* @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -136,6 +131,32 @@ public class CustomerFormController extends HttpServlet {
         }
     }
 
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String customerId = req.getParameter("customerId");
+        System.out.println("Received customerId: " + customerId);
+
+        if (customerId == null || customerId.isEmpty()) {
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Customer ID is required.");
+            return;
+        }
+
+        try (var writer = resp.getWriter()) {
+            boolean isDeleted = customerBo.deleteCustomer(customerId, connection);
+            System.out.println(isDeleted);
+            //System.out.println("Customer deleted: " + isDeleted);
+            if (isDeleted) {
+                resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
+            } else {
+                resp.sendError(HttpServletResponse.SC_NOT_FOUND, "Customer not found");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "An unexpected error occurred");
+        }
+
+    }
 }
+
 
 

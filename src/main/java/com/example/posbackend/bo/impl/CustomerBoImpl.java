@@ -11,10 +11,7 @@ import java.sql.Connection;
 public class CustomerBoImpl implements CustomerBo {
 
     public CustomerDao customerDao = new CustomerDaoImpl();
-    @Override
-    public boolean deleteCustomer(String customerId, Connection connection) {
-        return false;
-    }
+
 
     @Override
     public boolean  saveCustomer(CustomerDTO customerDTO, Connection connection) {
@@ -46,5 +43,17 @@ public class CustomerBoImpl implements CustomerBo {
         return customerDao.updateCustomer(customer,connection);
     }
 
+    @Override
+    public boolean deleteCustomer(String customerId, Connection connection) {
+        try {
+            return customerDao.deleteCustomer(customerId, connection);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to delete customer with ID: " + customerId, e);
+        }
+    }
 
 }
+
+
+
+

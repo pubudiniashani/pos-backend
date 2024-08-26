@@ -62,7 +62,19 @@ public class CustomerDaoImpl implements CustomerDao {
 
     @Override
     public boolean deleteCustomer(String customerId, Connection connection) {
-        return false;
+
+        try {
+            var pstm = connection.prepareStatement(DELETE_CUSTOMER);
+
+            pstm.setString(1,customerId);
+
+            return pstm.executeUpdate() > 0 ;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 
     @Override
