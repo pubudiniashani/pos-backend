@@ -5,11 +5,16 @@ import com.example.posbackend.dto.CustomerDTO;
 import com.example.posbackend.entity.Customer;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerDaoImpl implements CustomerDao {
 
-    static  String GET_CUSTOMER ="SELECT * FROM customer WHERE customerId = ?";
+    //static  String GET_CUSTOMER ="SELECT * FROM customer WHERE customerId = ?";
+
+    static String GET_ALL = "SELECT * FROM customer";
 
     public String SAVE_CUSTOMER = "INSERT INTO customer (customerId, customerName, address, contactNumber) VALUES (?, ?, ?, ?)";
 
@@ -19,6 +24,33 @@ public class CustomerDaoImpl implements CustomerDao {
 
 
     @Override
+    public List<Customer> getAllCustomers(Connection connection) {
+
+        List<Customer> customers = new ArrayList<>();
+
+        try {
+            var pstm = connection.prepareStatement(GET_ALL);
+            ResultSet resultSet = pstm.executeQuery();
+
+            while (resultSet.next()){
+                Customer customer = new Customer();
+                customer.setCustomerId(resultSet.getString("customerId"));
+                customer.setCustomerName(resultSet.getString("customerName"));
+                customer.setAddress(resultSet.getString("address"));
+                customer.setContactNumber(resultSet.getString("contactNumber"));
+
+                customers.add(customer);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return customers;
+
+    }
+
+    /*@Override
     public CustomerDTO getCustomer(String customerId, Connection connection) throws SQLException {
 
         var customerDTO = new CustomerDTO();
@@ -40,7 +72,7 @@ public class CustomerDaoImpl implements CustomerDao {
         return customerDTO;
 
 
-    }
+    }*/
 
     @Override
     public boolean saveCustomer(Customer customer, Connection connection) {

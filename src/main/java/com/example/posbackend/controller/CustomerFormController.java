@@ -19,6 +19,7 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 
 @WebServlet(urlPatterns = "/customer")
@@ -48,11 +49,27 @@ public class CustomerFormController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        try (var writer = resp.getWriter()) {
+
+            Jsonb jsonb = JsonbBuilder.create();
+
+            List<CustomerDTO> customerDTOS = customerBo.getAllCustomers(connection);
+
+            String jsonResponse = jsonb.toJson(customerDTOS);
+            writer.write(jsonResponse);
+            resp.setStatus(HttpServletResponse.SC_OK);
+
+
+        } catch (JsonException e) {
+            throw new RuntimeException(e);
+
+        }
 
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         if (!req.getContentType().toLowerCase().startsWith("application/json") || req.getContentType() == null) {
             //send error
             resp.sendError(HttpServletResponse.SC_UNSUPPORTED_MEDIA_TYPE);

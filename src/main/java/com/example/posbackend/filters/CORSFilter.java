@@ -11,7 +11,7 @@ import java.io.IOException;
 
 @WebFilter(urlPatterns = "/*")
 public class CORSFilter extends HttpFilter {
-   /* @Override
+    @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
 
         var origin = req.getHeader("Origin");
@@ -26,6 +26,6 @@ public class CORSFilter extends HttpFilter {
         chain.doFilter(req, res);
 
 
-    }*/
+    }
 }
 

@@ -10,17 +10,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55a39726-afb0-48d4-92c8-43dbc73f3a92" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/bo/ItemBo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/bo/impl/ItemBoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/dao/ItemDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/dto/ItemDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/entity/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/bo/OrderBo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/bo/OrderDetailBo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/bo/impl/OrderBoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/bo/impl/OrderDetailBoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/controller/OrderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/controller/OrderDetailController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/dao/OrderDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/dao/OrderDetailDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/dao/impl/OrderDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/dao/impl/OrderDetailDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/dto/OrderDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/dto/OrderDetailDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/entity/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/entity/OrderDetail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dbb34749-d59c-48f2-9987-e9b3e855943a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/dbb34749-d59c-48f2-9987-e9b3e855943a.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dbb34749-d59c-48f2-9987-e9b3e855943a/storage_v2/_src_/schema/pos.VLIBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/dbb34749-d59c-48f2-9987-e9b3e855943a/storage_v2/_src_/schema/pos.VLIBAA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/posbackend/bo/CustomerBo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/bo/CustomerBo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/posbackend/bo/ItemBo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/bo/ItemBo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/posbackend/bo/impl/CustomerBoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/bo/impl/CustomerBoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/posbackend/bo/impl/ItemBoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/bo/impl/ItemBoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/posbackend/controller/CustomerFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/controller/CustomerFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/posbackend/controller/ItemFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/controller/ItemFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/posbackend/dao/CustomerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/dao/CustomerDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/posbackend/dao/ItemDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/dao/ItemDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/posbackend/dao/impl/CustomerDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/dao/impl/CustomerDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/posbackend/dao/impl/ItemDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/dao/impl/ItemDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/posbackend/filters/CORSFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/filters/CORSFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +196,16 @@
       <workItem from="1724570875049" duration="59000" />
       <workItem from="1724575638967" duration="4598000" />
       <workItem from="1724588016148" duration="5396000" />
-      <workItem from="1724644845020" duration="7250000" />
+      <workItem from="1724644845020" duration="8075000" />
+      <workItem from="1724667158658" duration="625000" />
+      <workItem from="1724681454381" duration="878000" />
+      <workItem from="1724688144704" duration="392000" />
+      <workItem from="1724689161466" duration="641000" />
+      <workItem from="1724725354827" duration="3703000" />
+      <workItem from="1724741161740" duration="1520000" />
+      <workItem from="1724751596009" duration="1200000" />
+      <workItem from="1724767433769" duration="3349000" />
+      <workItem from="1724806631362" duration="4566000" />
     </task>
     <servers />
   </component>

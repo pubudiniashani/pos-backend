@@ -20,6 +20,7 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 @WebServlet(urlPatterns = "/item")
 public class ItemFormController extends HttpServlet {
@@ -47,7 +48,22 @@ public class ItemFormController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        try (var writer = resp.getWriter()) {
+
+            Jsonb jsonb = JsonbBuilder.create();
+
+            List<ItemDTO> itemDTOS = itemBo.getAllItems(connection);
+
+            String jsonResponse = jsonb.toJson(itemDTOS);
+            writer.write(jsonResponse);
+            resp.setStatus(HttpServletResponse.SC_OK);
+
+
+        } catch (JsonException e) {
+            throw new RuntimeException(e);
+
+        }
+
     }
 
     @Override

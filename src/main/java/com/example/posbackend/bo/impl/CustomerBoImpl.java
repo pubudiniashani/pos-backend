@@ -7,10 +7,32 @@ import com.example.posbackend.dto.CustomerDTO;
 import com.example.posbackend.entity.Customer;
 
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerBoImpl implements CustomerBo {
 
     public CustomerDao customerDao = new CustomerDaoImpl();
+
+    @Override
+    public List<CustomerDTO> getAllCustomers(Connection connection) {
+
+        List<Customer> customerList = customerDao.getAllCustomers(connection);
+
+        List<CustomerDTO> customerDTOS = new ArrayList<>();
+
+        for (Customer customer:customerList) {
+            CustomerDTO customerDTO = new CustomerDTO();
+            customerDTO.setCustomerId(customer.getCustomerId());
+            customerDTO.setCustomerName(customer.getCustomerName());
+            customerDTO.setAddress(customer.getAddress());
+            customerDTO.setContactNumber(customer.getContactNumber());
+
+            customerDTOS.add(customerDTO);
+        }
+
+        return customerDTOS;
+    }
 
 
     @Override
@@ -42,6 +64,7 @@ public class CustomerBoImpl implements CustomerBo {
 
         return customerDao.updateCustomer(customer,connection);
     }
+
 
     @Override
     public boolean deleteCustomer(String customerId, Connection connection) {
