@@ -9,16 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55a39726-afb0-48d4-92c8-43dbc73f3a92" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/posbackend/bo/OrderDetailBo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/bo/OrderDetailBo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/posbackend/bo/impl/OrderBoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/bo/impl/OrderBoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/posbackend/bo/impl/OrderDetailBoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/bo/impl/OrderDetailBoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/posbackend/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/posbackend/dao/OrderDetailDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/dao/OrderDetailDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/posbackend/dao/impl/OrderDetailDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/dao/impl/OrderDetailDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/posbackend/entity/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/posbackend/entity/OrderDetail.java" afterDir="false" />
-    </list>
+    <list default="true" id="55a39726-afb0-48d4-92c8-43dbc73f3a92" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -189,6 +180,7 @@
       <workItem from="1724811225576" duration="1560000" />
       <workItem from="1724815511342" duration="4120000" />
       <workItem from="1724837161995" duration="4894000" />
+      <workItem from="1724852254787" duration="1201000" />
     </task>
     <servers />
   </component>
